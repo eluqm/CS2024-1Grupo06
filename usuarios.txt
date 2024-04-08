@@ -1,0 +1,4 @@
+Christian,lxrdasde@gmail.com,123
+2:3
+100,ropa,ropa
+casa:123
