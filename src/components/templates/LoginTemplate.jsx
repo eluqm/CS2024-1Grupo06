@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Btnsave, v,useAuthStore } from "../../index";
 export function LoginTemplate() {
   const {signInWithGoogle} = useAuthStore();
+  
   return (
     <Container imgfondo={v.imagenfondo}>
       <div className="contentCard">
@@ -37,13 +38,21 @@ const Container = styled.div`
     padding: 20px;
     margin: 20px;
     box-shadow: 8px 5px 18px 3px rgba(0, 0, 0, 0.35);
+    justify-content:center;
+    width:auto;
+    height:80%;
     .version {
       color: #727272;
       text-align: start;
     }
     .contentImg{
+      width: 100%;
+      display:flex;
+      justify-content:center;
+    
       img{
-        max-width: 60%;
+        width: 40%;
+     
         animation:flotar 1.5s ease-in-out infinite alternate;
       }
     }

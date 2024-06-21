@@ -6,37 +6,61 @@ import {
   Dark,
   AuthContextProvider,
   Menuambur,
+  useUsuariosStore,
+  Login,
+  SpinnerLoader,
+  Fondo1,
 } from "./index";
+import { useLocation } from "react-router-dom";
 import { createContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { styled } from "styled-components";
+import { useQuery } from "@tanstack/react-query";
 export const ThemeContext = createContext(null);
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const { mostrarUsuarios, datausuarios } = useUsuariosStore();
+
+  const { pathname } = useLocation();
+  // const [theme, setTheme] = useState("dark");
+  const theme = datausuarios?.tema === "0" ? "light" : "dark";
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { isLoading, error } = useQuery({queryKey:["mostrar usuarios"],queryFn: () =>
+    mostrarUsuarios()}
+  );
+
+  if (isLoading) {
+    return <SpinnerLoader />;
+  }
+  if (error) {
+    return <h1>Error..</h1>;
+  }
 
   return (
     <>
-      <ThemeContext.Provider value={{ setTheme, theme }}>
+      <ThemeContext.Provider value={{ theme }}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
-            <Container className={sidebarOpen ? "active" : ""}>
-              <div className="ContentSidebar">
-                <Sidebar
-                  state={sidebarOpen}
-                  setState={() => setSidebarOpen(!sidebarOpen)}
-                />
-              </div>
-              <div className="ContentMenuambur">
-                <Menuambur />
-              </div>
+            {pathname != "/login" ? (
+              <Container className={sidebarOpen ? "active" : ""}>
+                <div className="ContentSidebar">
+                  <Sidebar
+                    state={sidebarOpen}
+                    setState={() => setSidebarOpen(!sidebarOpen)}
+                  />
+                </div>
+                <div className="ContentMenuambur">
+                  <Menuambur />
+                </div>
 
-              <Containerbody>
-                <MyRoutes />
-              </Containerbody>
-            </Container>
+                <Containerbody>
+                  <MyRoutes />
+                </Containerbody>
+              </Container>
+            ) : (
+              <Login />
+            )}
 
             <ReactQueryDevtools initialIsOpen={true} />
           </AuthContextProvider>
@@ -50,7 +74,7 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   background: ${({ theme }) => theme.bgtotal};
   transition: all 0.2s ease-in-out;
- 
+
   .ContentSidebar {
     display: none;
   }

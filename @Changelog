@@ -2,5 +2,10 @@
 - Zuztand (npm install zustand)
 
 20 / 05:
-- SideBar finalizado, se utiliz
+- SideBar finalizado
 
+17 / 06:
+- c2c casi finalizado, falta corregir tablas de supabase y despliegue
+
+21 / 06:
+- Finalizado, aun tiene bugs en lo que es movimientos. Tiene que ver con alguna tabla de SUPABASE.

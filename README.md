@@ -30,6 +30,8 @@ C2C es un sistema para controlar los gastos personales de forma facil y rapida.
 Para inicializarlo solo usa
 
 ```bash
+  npm install iso-country-currency
+  npm install sweetalert2
   npm i
   npm run dev
 ```
