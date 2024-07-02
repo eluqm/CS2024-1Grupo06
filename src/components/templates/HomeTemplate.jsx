@@ -9,7 +9,7 @@ export function HomeTemplate() {
           <Carousel />
         </Box>
         <Title>
-          Bienvenido a C2C <br /> ✅
+          Bienvenido a Coin2Coin <br /> ✅
         </Title>
         <SubText>
           C2C nace por las pocas aplicaciones gratis que existen para
@@ -20,11 +20,11 @@ export function HomeTemplate() {
         </SubText>
         <ContainerAutor>
           <div className="contentImg">
-            <img src="https://i.ibb.co/Ttt43Rs/Whats-App-Image-2022-09-26-at-9-25-44-PM.jpg" />
+            <img src="https://i.postimg.cc/G22XFLKc/79915950-160225645209465-2784832961952874496-n.jpg" />
           </div>
           <div className="contentDescripcion">
             <b>Christian Rodriguez</b>
-            <span>"cualquiera puede programar"</span>
+            <span>"Viviendo como se aprueba, al límite"</span>
           </div>
         </ContainerAutor>
         <ButtonContainer>

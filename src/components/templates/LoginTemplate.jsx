@@ -10,8 +10,8 @@ export function LoginTemplate() {
         <div className="contentImg">
           <img src={v.logo}/>
         </div>
-        <Titulo>C2C</Titulo>
-        <p className="frase">Toma el control de tus 💵gastos e 💰ingresos</p>
+        <Titulo>Coin2Coin</Titulo>
+        <p className="frase">Gestiona tus Gastos e Ingresos con C2C, una herramienta pensada para el bienestar de tu bolsillo 💸</p>
         <ContainerBtn>
           <Btnsave titulo="Iniciar con google" icono={<v.iconogoogle />} bgcolor={v.colorSecundario} funcion={signInWithGoogle}/>
         </ContainerBtn>
